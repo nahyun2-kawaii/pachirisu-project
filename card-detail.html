@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>상품명 / 브랜드명 / PACHIRISU</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+<body>
+  <header>
+	
+	<nav class="main-nav">
+
+		<div class="header-left">
+			<a href="home.html">PACHIRISU</a>
+		</div>
+
+		<div class="header-right">
+			<div class="top-menu">
+				<a href="help.html">고객센터</a>
+				<a href="login.html">로그인</a>
+			</div>
+
+			<div class="main-menu">
+				<a href="home.html">HOME</a>
+				<a href="ranking.html">RANKING</a>
+				<a href="cart.html">CART</a>
+			</div>
+		</div>
+	</nav>
+</header>
+
+<main class="product-detail">
+  <div class="product-left">
+    <section class="image-box">
+      <img
+        src="https://images.pokemontcg.io/base1/58.png"
+        alt="피카츄 카드 이미지"
+      />
+    </section>
+
+    <section class="detail-section">
+      <h2>상품 상세 정보</h2>
+      <p>
+        1999년 포켓몬 카드 베이스 세트의 피카츄 카드입니다.
+        이 카드는 초기 포켓몬 카드 수집 시장에서 인기가 높은 카드 중 하나입니다.
+      </p>
+      <p>
+        카드 상태, 발매 국가, 초판 여부, 보관 상태에 따라 실제 거래가는 크게 달라질 수 있습니다.
+      </p>
+    </section>
+
+    <section class="detail-section">
+      <h2>카드 기본 정보</h2>
+      <ul>
+        <li><strong>카드 이름:</strong> 피카츄</li>
+        <li><strong>세트명:</strong> Base Set</li>
+        <li><strong>카드 번호:</strong> 58/102</li>
+        <li><strong>언어:</strong> 영어</li>
+        <li><strong>상태:</strong> Near Mint</li>
+        <li><strong>레어도:</strong> Common</li>
+      </ul>
+    </section>
+
+    <section class="detail-section">
+      <h2>상태 설명</h2>
+      <p>
+        Near Mint 상태는 카드 표면, 모서리, 뒷면에 큰 손상이 없는 상태를 의미합니다.
+        다만 실제 거래 전에는 사진과 실물 검수가 필요합니다.
+      </p>
+      <p>
+        PSA, BGS, CGC 같은 등급 회사의 감정 여부에 따라 가격은 크게 달라질 수 있습니다.
+      </p>
+    </section>
+
+    <section class="detail-section">
+      <h2>거래 주의사항</h2>
+      <ul>
+        <li>고가 카드는 직거래 또는 안전결제를 권장합니다.</li>
+        <li>카드 앞면, 뒷면, 모서리 사진을 반드시 확인하세요.</li>
+        <li>초판 여부와 카드 번호를 확인하세요.</li>
+        <li>해외 거래 가격은 환율과 배송비를 함께 고려해야 합니다.</li>
+      </ul>
+    </section>
+  </div>
+
+  <div class="product-right">
+<section class="card-info">
+  <div class="price-header">
+    <span class="price-label">최근 거래가</span>
+    <strong id="latestPrice" class="latest-price">36,500원</strong>
+  </div>
+
+  <div class="price-change-row">
+    <span>전일 대비</span>
+    <strong id="priceChange" class="price-change up">+0.5%</strong>
+  </div>
+
+  <div class="product-title-box">
+    <h2>1999년 포켓몬 카드 1판 베이스 세트, 피카츄 (빨간 볼) #58/102</h2>
+    <p>Pikachu Yellow Cheeks 1999 Pokemon TCG Base Set 1st Edition #58/102</p>
+  </div>
+
+  <div class="trade-buttons">
+    <button class="sell-button">판매하기</button>
+    <button class="buy-button">구매하기</button>
+  </div>
+</section>
+
+<section class="price-info">
+  <div class="section-title-row">
+    <h2>일자별 거래가</h2>
+    <span>최근 거래 기준</span>
+  </div>
+
+  <div class="chart-box">
+    <svg id="priceChart" viewBox="0 0 500 260"></svg>
+  </div>
+
+  <div id="priceHistoryList" class="price-history-list"></div>
+</section>
+
+  </div>
+</main>
+
+  <footer>
+    <p>© 2026 PACHIRISU</p>
+  </footer>
+  <script>
+  const priceHistory = [
+    { date: "05/01", price: 34000 },
+    { date: "05/08", price: 35200 },
+    { date: "05/15", price: 35800 },
+    { date: "05/22", price: 36300 },
+    { date: "05/29", price: 36500 },
+  ];
+
+  const latestPriceElement = document.getElementById("latestPrice");
+  const priceChangeElement = document.getElementById("priceChange");
+  const priceChart = document.getElementById("priceChart");
+  const priceHistoryList = document.getElementById("priceHistoryList");
+
+  const latest = priceHistory[priceHistory.length - 1];
+  const previous = priceHistory[priceHistory.length - 2];
+
+  const changeRate = ((latest.price - previous.price) / previous.price) * 100;
+
+  latestPriceElement.textContent = latest.price.toLocaleString() + "원";
+
+  if (changeRate >= 0) {
+    priceChangeElement.textContent = "+" + changeRate.toFixed(1) + "%";
+    priceChangeElement.classList.add("up");
+    priceChangeElement.classList.remove("down");
+  } else {
+    priceChangeElement.textContent = changeRate.toFixed(1) + "%";
+    priceChangeElement.classList.add("down");
+    priceChangeElement.classList.remove("up");
+  }
+
+  const chartWidth = 500;
+  const chartHeight = 260;
+  const padding = 32;
+
+  const prices = priceHistory.map((item) => item.price);
+  const minPrice = Math.min(...prices);
+  const maxPrice = Math.max(...prices);
+
+  function getX(index) {
+    const usableWidth = chartWidth - padding * 2;
+    return padding + (usableWidth / (priceHistory.length - 1)) * index;
+  }
+
+  function getY(price) {
+    const usableHeight = chartHeight - padding * 2;
+    const priceRange = maxPrice - minPrice;
+    return chartHeight - padding - ((price - minPrice) / priceRange) * usableHeight;
+  }
+
+  const points = priceHistory
+    .map((item, index) => {
+      return getX(index) + "," + getY(item.price);
+    })
+    .join(" ");
+
+  priceChart.innerHTML = `
+    <line x1="${padding}" y1="${chartHeight - padding}" x2="${chartWidth - padding}" y2="${chartHeight - padding}" stroke="#dddddd" />
+    <line x1="${padding}" y1="${padding}" x2="${padding}" y2="${chartHeight - padding}" stroke="#dddddd" />
+
+    <polyline
+      points="${points}"
+      fill="none"
+      stroke="#e60023"
+      stroke-width="4"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+
+    ${priceHistory
+      .map((item, index) => {
+        const x = getX(index);
+        const y = getY(item.price);
+
+        return `
+          <circle cx="${x}" cy="${y}" r="5" fill="#e60023" />
+          <text x="${x}" y="${chartHeight - 8}" text-anchor="middle" font-size="12" fill="#777777">
+            ${item.date}
+          </text>
+        `;
+      })
+      .join("")}
+  `;
+
+  priceHistoryList.innerHTML = priceHistory
+    .slice()
+    .reverse()
+    .map((item) => {
+      return `
+        <div class="price-history-item">
+          <span class="date">${item.date}</span>
+          <span class="price">${item.price.toLocaleString()}원</span>
+        </div>
+      `;
+    })
+    .join("");
+</script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<title>상품명/브랜드명/PACHIRISU</title>
+*		<link rel="stylesheet" href="style.css" />
+	<head>
+	
+	<body>
+		<header>
+			<nav class="header-left>
+				<a href="home.html">PACHIRISU<a>
+			</nav>
+			
+			<nav class="header-right>
+				<div class="header-right1">
+				<a href="home.html">HOME</a>
+				<a href="ranking.html">RANKING</a>
+				<a href="cart.html">CART</a>
+				</div>
+			
+
+			<div class="header-right2">
+				<a href="help.html">고객센터</a>
+				<a href="rogin.html">로그인</a>
+			</div>
+			</nav>
+		</header>
+
+		<main>
+			<div class="product-left">
+				<img
+					src="https://images.pokemontcg.io/base1/58.png"
+        				alt="피카츄 카드 이미지"
+
+				/>
+			</div>
+
+			<div class="product-right">
+				<section class="product-right-up>
+					<p><strong>18,900원</strong></p>
+					<p><strong>1999년 포켓몬 카드 1판 베이스 세트, 피카츄 (빨간 볼) #58/102</strong</p>
+					<p>Pikachu Yellow Cheeks 1999 Pokemon TCG Base Set 1st Edition #58/102</p>
+				</section>
+
+				<section class="product-right-down">
+					<p><strong>시세 그래프</strong></p>
+					 <ul>
+					        <li><strong>최근 거래가:</strong> 50,000원</li>
+					        <li><strong>최저가:</strong> 42,000원</li>
+					        <li><strong>최고가:</strong> 65,000원</li>
+					        <li><strong>평균 시세:</strong> 52,300원</li>
+        					<li><strong>거래 플랫폼:</strong> eBay</li>
+      					</ul>
+				</section>
+
+		</main>
+
+		<footer>
+		    <p>© 2026 PACHIRISU</p>
+		</footer>
+	</body>
+</html>
